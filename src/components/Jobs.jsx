@@ -1,10 +1,9 @@
 import React from 'react'
-import jobs from '../Jobs.json'
 import Job from './Job'
 import { useState, useEffect } from 'react'
 const Jobs = ({isHome=false}) => {
     /*<!--console.log(jobs)--!>*/
-    const [jobs, setJobs] = useState([])
+    const [recentJobs, setJobs] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -23,7 +22,7 @@ const Jobs = ({isHome=false}) => {
           { isHome ? 'Featured Jobs': 'All Jobs'}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {jobs.map((job) => (
+            {recentJobs.map((job) => (
                 <Job key={job.id} job={job}/>
             )) }
         </div>
